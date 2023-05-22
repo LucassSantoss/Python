@@ -1,0 +1,60 @@
+#Nomes: Lucas Pereira dos Santos e Bruno Mascioli de Souza
+print("Informe a quantidade de alunos: ")
+qntd_alunos = int(input())
+print('Informe a quantidade de trabalhos: ')
+qntd_trabalhos = int(input())
+print('=================================')
+
+media_provas_aluno = 0
+menor_nota_prova = 0
+media_trabalhos_aluno = 0
+media_final_aluno = 0
+media_final_sala = 0
+alunos_aprovados = 0
+alunos_reprovados = 0
+alunos_recuperacao = 0
+i = 0
+while i < qntd_alunos:
+  print('Nota da prova 1:')
+  prova1 = float(input())
+  print('Nota da prova 2:')
+  prova2 = float(input())
+  print('Nota da prova Sub:')
+  prova_sub = float(input())
+  menor_nota_prova = prova1
+  maior_nota_prova = prova1
+  if prova2 > maior_nota_prova:
+    maior_nota_prova = prova2
+  else:
+    menor_nota_prova = prova2
+  if prova_sub > menor_nota_prova:
+    menor_nota_prova = prova_sub
+  media_provas_aluno = (maior_nota_prova + menor_nota_prova) / 2
+  j = 0  
+  while j < qntd_trabalhos:
+    print(f'Nota do trabalho {j + 1}: ')
+    nota_trabalho = float(input())
+    media_trabalhos_aluno += nota_trabalho
+    j += 1
+  media_trabalhos_aluno /= qntd_trabalhos
+  media_final_aluno = (0.6 * media_provas_aluno) + (0.4 * media_trabalhos_aluno)
+  media_trabalhos_aluno = 0
+  if media_final_aluno < 4:
+    status_aluno = 'Reprovado'
+    alunos_reprovados += 1
+  elif media_final_aluno >= 4 and media_final_aluno < 6:
+    status_aluno = 'Recuperação'
+    alunos_recuperacao += 1
+  else:
+    status_aluno = 'Aprovado'
+    alunos_aprovados += 1
+  print(f'Nota do aluno {i + 1}: {media_final_aluno:.2f} - {status_aluno}')
+  print('=================================')
+  media_final_sala += media_final_aluno
+  i += 1
+media_final_sala /= qntd_alunos
+
+print(f'Alunos aprovados: {alunos_aprovados}')
+print(f'Alunos em recuperação: {alunos_recuperacao}')
+print(f'Alunos reprovados: {alunos_reprovados}')
+print(f'Media final da Classe: {media_final_sala:.2f}')
