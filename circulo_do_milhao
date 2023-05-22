@@ -1,0 +1,44 @@
+#Nomes: Lucas Pereira dos Santos e Bruno Mascioli de Souza
+n = int(input("Digite a quantidade de pessoas na roda: "))
+x = int(input("Posição que você quer saber quem foi eliminado: "))
+lista = []
+
+#adiciona pessoas na lista de 1 a n
+i = 1
+while i <= n:
+  lista.append(i)
+  i += 1
+
+#alternar = se alternar == false, não eliminará ninguém nessa rodada, mas se alternar == true, eliminará alguém nessa rodada
+#ao final de cada rodada, o valor de alternar é invertido, se estava True vira False e vice-versa
+#a pessoa eliminada da lista é determinada por -1
+
+alternar = False
+quantidade_eliminados = 0
+while quantidade_eliminados != len(lista) - 1:
+  i = 0
+  while i < len(lista):
+    if lista[i] != -1:
+      if alternar == True:
+        quantidade_eliminados += 1
+        if quantidade_eliminados == x:
+          eliminadox = lista[i]
+        lista[i] = -1
+        alternar = False
+      else:
+        alternar = True
+    i += 1
+
+#Determina qual foi o ganhador (único da lista que não foi eliminado)
+i = 0
+while i < len(lista):
+  if lista[i] != -1:
+    ganhador = lista[i]
+  i += 1
+
+if x < n:
+  print(f"Eliminação {x}: {eliminadox}")
+  print(f"Ganhador: {ganhador}")
+else:
+  print(f"Não houveram {x} eliminações no processo.")
+  print(f"Ganhador: {ganhador}")
