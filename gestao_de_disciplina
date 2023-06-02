@@ -1,4 +1,6 @@
-#Nomes: Lucas Pereira dos Santos e Bruno Mascioli de Souza
+#Feito por: Lucas Pereira dos Santos e Bruno Mascioli de Souza
+#Perfis no github: LucassSantoss e brunomascioli
+
 print("Informe a quantidade de alunos: ")
 qntd_alunos = int(input())
 print('Informe a quantidade de trabalhos: ')
