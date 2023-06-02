@@ -1,4 +1,6 @@
-#Nomes: Lucas Pereira dos Santos e Bruno Mascioli de Souza
+#Feito por: Lucas Pereira dos Santos e Bruno Mascioli de Souza
+#Perfis no github: LucassSantoss e brunomascioli
+
 n = int(input("Digite a quantidade de pessoas na roda: "))
 x = int(input("Posição que você quer saber quem foi eliminado: "))
 lista = []
